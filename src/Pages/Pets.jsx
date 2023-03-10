@@ -41,7 +41,7 @@ function Pets() {
   return (
    <div style={{position :"relative", width:"100%",height:"100%"}}>
     <div className={storageControl?'pets':'petsActive'} >
-      <Typography id="basic-modal-dialog-title" component="h1" style={{ textAlign: "start" , margin:"0px 0px 25px 25px" ,fontSize:"25px"}}>
+      <Typography id="basic-modal-dialog-title" component="h1" style={{ textAlign: "start" , margin:"0px 0px 25px 0px" ,fontSize:"25px"}}>
       {storageControl?'':'My Pets'}
         </Typography>
       <Button className='openModal' variant="outlined" color="neutral" onClick={() => setOpen(true)}>
@@ -72,7 +72,7 @@ function Pets() {
         </ModalDialog>
       </Modal>
     </div>
-    {!storageControl? <div className='petsTable'><PetsTable  /></div>:null}
+    {!storageControl? <div className='petsTable'><PetsTable pets={pets} /></div>:null}
    </div>
   );
 }

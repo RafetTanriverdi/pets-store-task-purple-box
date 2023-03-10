@@ -1,12 +1,12 @@
-import React, { useState, useEffect,useContext } from 'react';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import React, { useState, useEffect } from 'react';
+import { DataGrid } from '@mui/x-data-grid';
 import { Button, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, InputLabel } from '@mui/material';
 import { Modal, ModalDialog, Stack, FormControl, FormLabel, Input } from '@mui/joy';
-import Typography from '@mui/joy/Typography';
-import PetsContext from '../Context/PetsContext';
 
-function PetsTable() {
-  const [pets, setPets] = useState([]);
+
+
+function PetsTable(props) {
+  const [pets, setPets] = useState(props.pets);
   const [selectedPet, setSelectedPet] = useState(null);
   const [open, setOpen] = useState(false);
   const [editedName, setEditedName] = useState("");
@@ -17,10 +17,13 @@ function PetsTable() {
  
 
   useEffect(() => {
+    const intervalId = setInterval(() => {
     const storedPets = JSON.parse(localStorage.getItem("pets"));
     if (storedPets) {
       setPets(storedPets);
     }
+  },1000)
+  return () => clearInterval(intervalId);
   }, []);
 
   const handleDelete = (id) => {
@@ -99,48 +102,51 @@ function PetsTable() {
       },
     },
   ];
-  return (
-    <>
-      {pets.length > 0 ?( 
-        <div className="petsTable" id="dataGrid">
-          <DataGrid
-            sx={{ width: "90%", margin: "0 auto" }}
-            rows={pets}
-            columns={columns}
-          />
-          <Dialog open={open} onClose={handleModalClose}   >
-            <div style={{ padding: "15px 25px" }}>
+    return (
+      <>
+        {pets.length > 0 ?( 
+          <div className="petsTable" id="dataGrid">
+            <DataGrid
+              sx={{ width: "90%", margin: "0 auto" }}
+              rows={pets}
+              columns={columns}
+            />
+            <Dialog open={open} onClose={handleModalClose}   >
+              <div style={{ padding: "15px 25px" }}>
+  
+                <DialogTitle sx={{ mb: 1, textAlign: "center" }}> Update Pet</DialogTitle>
+                <DialogContent className='uptadeModal'  >
+  
+                  <FormControl fullWidth sx={{ mb: 2 }}  >
+                    <InputLabel>Category</InputLabel>
+                    <Input value={editedCategory} onChange={(e) => setEditedCategory(e.target.value)} />
+                  </FormControl>
+                  <FormControl fullWidth sx={{ mb: 2 }}>
+                    <InputLabel>Name</InputLabel>
+                    <Input value={editedName} onChange={(e) => setEditedName(e.target.value)} />
+                  </FormControl>
+                  <FormControl fullWidth >
+                    <InputLabel>Tags</InputLabel>
+                    <Input value={editedTags} onChange={(e) => setEditedTags(e.target.value)} />
+                  </FormControl>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleModalClose}>Cancel</Button>
+                  <Button onClick={handleSave} variant="contained" color="primary">
+                    Uptade
+                  </Button>
+                </DialogActions>
+              </div>
+            </Dialog>
+          </div>)
+  
+          : null}
+      </>
+  
+    );
+   
 
-              <DialogTitle sx={{ mb: 1, textAlign: "center" }}> Update Pet</DialogTitle>
-              <DialogContent className='uptadeModal'  >
-
-                <FormControl fullWidth sx={{ mb: 2 }}  >
-                  <InputLabel>Category</InputLabel>
-                  <Input value={editedCategory} onChange={(e) => setEditedCategory(e.target.value)} />
-                </FormControl>
-                <FormControl fullWidth sx={{ mb: 2 }}>
-                  <InputLabel>Name</InputLabel>
-                  <Input value={editedName} onChange={(e) => setEditedName(e.target.value)} />
-                </FormControl>
-                <FormControl fullWidth >
-                  <InputLabel>Tags</InputLabel>
-                  <Input value={editedTags} onChange={(e) => setEditedTags(e.target.value)} />
-                </FormControl>
-              </DialogContent>
-              <DialogActions>
-                <Button onClick={handleModalClose}>Cancel</Button>
-                <Button onClick={handleSave} variant="contained" color="primary">
-                  Uptade
-                </Button>
-              </DialogActions>
-            </div>
-          </Dialog>
-        </div>)
-
-        : null}
-    </>
-
-  );
+  
 
 }
 
