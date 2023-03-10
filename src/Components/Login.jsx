@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { CssVarsProvider, useColorScheme } from '@mui/joy/styles';
 import Sheet from '@mui/joy/Sheet';
 import Typography from '@mui/joy/Typography';
@@ -15,21 +15,34 @@ function Login() {
 
     const [user, setuser] = useState("");
     const [password, setpassword] = useState("");
-    const input = {
-        username:user,
-        email: user,
-        password: password
-
-    }
+    const [output, setoutput] = useState([]);
+ 
+    useEffect(() => {
+      
+        const loggeduser = JSON.parse(localStorage.getItem("user"));
+        if(loggeduser){
+            setoutput(loggeduser);
+        }
+    }, [])
+    
 
     const handleLogin = (e) => {
         e.preventDefault();
-        const loggeduser = JSON.parse(localStorage.getItem("user"));
-        if ((input.username===loggeduser.username|| input.email === loggeduser.email) && input.password === loggeduser.password) {
-            localStorage.setItem("loggedin",true);
-            navigator("/");
+        const input = {
+          user,
+          password
+        };
+        const matchedUser = output.find((user) => {
+          return (
+            (user.username === input.user || user.email === input.user) &&
+            user.password === input.password
+          );
+        });
+        if (matchedUser) {
+          localStorage.setItem("loggedin", true);
+          navigator("/");
         } else {
-            alert("Wrong E-mail or Password")
+          alert("Wrong E-mail or Password");
         }
     }
 
@@ -71,6 +84,7 @@ function Login() {
                             type="text"
                             placeholder="johndoe@email.com /joe"
                             onChange={(e) => setuser(e.target.value)}
+                            value={user}
 
                         />
                     </FormControl>
@@ -82,6 +96,7 @@ function Login() {
                             type="password"
                             placeholder="password"
                             onChange={(e) => setpassword(e.target.value)}
+                            value={password}
 
                         />
                     </FormControl>

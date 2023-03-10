@@ -1,7 +1,7 @@
 import './App.scss';
 import Login from './Components/Login';
 import Register from './Components/Register';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import ProjectedRoutes from './Services/ProjectedRoutes';
 import Pets from './Pages/Pets';
 import Store from './Pages/Store';

@@ -112,7 +112,7 @@ function Header() {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
               mr: 1,
               display: { xs: 'flex', md: 'none' },
@@ -129,9 +129,9 @@ function Header() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
 
-              <NavLink to={`/${page}`} style={{textDecoration:"none"}} >
+              <NavLink key={page} to={`/${page}`} style={{textDecoration:"none"}} >
                 <Button
-                  key={page}
+                  
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
