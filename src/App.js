@@ -4,7 +4,7 @@ import Register from './Components/Register';
 import { Routes, Route } from 'react-router-dom';
 import ProjectedRoutes from './Services/ProjectedRoutes';
 import Pets from './Pages/Pets';
-import Store from './Pages/Store';
+import Store from './Components/Store';
 import Analysis from './Pages/Analysis';
 import HomePage from './Components/HomePage';
 import HeaderLayout from './Services/HeaderLayout';

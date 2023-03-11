@@ -70,7 +70,7 @@ function PetsTable(props) {
     { field: 'name', headerName: 'Name', flex: 1 },
     { field: 'tags', headerName: 'Tags', flex: 1 },
     {
-      field: "",
+      field: "action",
       headerName: "Edit",
       flex: 1,
       renderCell: (params) => {
@@ -87,7 +87,7 @@ function PetsTable(props) {
     },
     {
       field: "actions",
-      headerName: "Actions",
+      headerName: "Delete",
       flex: 1,
       renderCell: (params) => {
         return (
@@ -106,7 +106,7 @@ function PetsTable(props) {
       <>
         {pets.length > 0 ?( 
           <div className="petsTable" id="dataGrid">
-            <DataGrid
+            <DataGrid style={{background:"#fff"}}
               sx={{ width: "90%", margin: "0 auto" }}
               rows={pets}
               columns={columns}
