@@ -36,7 +36,7 @@ function Header() {
   }
 
   return (
-    <AppBar position="static" className='navbar'>
+    <AppBar position="sticky" className='navbar'>
       <Container maxWidth="xl">
 
         <Toolbar disableGutters >

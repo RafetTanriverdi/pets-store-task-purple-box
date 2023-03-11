@@ -66,7 +66,7 @@ function Pets() {
                 <FormLabel>Tags</FormLabel>
                 <Input required value={tags} onChange={(e) => setTags(e.target.value)} />
               </FormControl>
-              <Button type="submit" >Submit</Button>
+              <Button type="submit" >Add</Button>
             </Stack>
           </form>
         </ModalDialog>
