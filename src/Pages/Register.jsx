@@ -27,6 +27,10 @@ function Register() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (!username || !email || !password) {
+          alert("Please fill in all fields.");
+          return;
+        }
         const newUser = { username, email, password };
         const updatedUser = [...input, newUser];
         setinput(updatedUser);
@@ -35,8 +39,7 @@ function Register() {
         setusername("");
         setpassword("");
         navigate("/login");
-    }
-
+      }
 
     return (
 

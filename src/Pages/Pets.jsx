@@ -7,7 +7,7 @@ import Modal from '@mui/joy/Modal';
 import ModalDialog from '@mui/joy/ModalDialog';
 import Stack from '@mui/joy/Stack';
 import Typography from '@mui/joy/Typography';
-import PetsTable from './PetsTable';
+import PetsTable from '../Components/PetsTable';
 
 
 function Pets() {

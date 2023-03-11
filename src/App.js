@@ -1,12 +1,12 @@
 import './App.scss';
-import Login from './Components/Login';
-import Register from './Components/Register';
+import Login from './Pages/Login';
+import Register from './Pages/Register';
 import { Routes, Route } from 'react-router-dom';
 import ProjectedRoutes from './Services/ProjectedRoutes';
 import Pets from './Pages/Pets';
-import Store from './Components/Store';
+import Store from './Pages/Store';
 import Analysis from './Pages/Analysis';
-import HomePage from './Components/HomePage';
+import HomePage from './Pages/HomePage';
 import HeaderLayout from './Services/HeaderLayout';
 
 function App() {

@@ -1,8 +1,8 @@
 import React from 'react'
-import StoreItem from '../Pages/StoreItem'
-import StoreSelected from '../Pages/StoreSelected'
+import StoreItem from '../Components/StoreItem'
+import StoreSelected from '../Components/StoreSelected'
 import { StoreProvider } from '../Context/StoreContext'
-import StoreFavorites from '../Pages/StoreFavorites'
+import StoreFavorites from '../Components/StoreFavorites'
 
 function Store() {
   return (

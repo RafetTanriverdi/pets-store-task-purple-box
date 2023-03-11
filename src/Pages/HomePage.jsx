@@ -1,5 +1,5 @@
 import React from 'react'
-import Pets from '../Pages/Pets'
+import Pets from './Pets'
 
 
 
