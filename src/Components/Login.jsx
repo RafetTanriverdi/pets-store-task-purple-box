@@ -20,6 +20,10 @@ function Login() {
     useEffect(() => {
       
         const loggeduser = JSON.parse(localStorage.getItem("user"));
+        if(!localStorage.getItem("user") ){
+            navigator("/register")
+        
+        }
         if(loggeduser){
             setoutput(loggeduser);
         }
@@ -38,12 +42,19 @@ function Login() {
             user.password === input.password
           );
         });
+        if(!localStorage.getItem("user") ){
+            navigator("/register")
+        
+        }
         if (matchedUser) {
           localStorage.setItem("loggedin", true);
           navigator("/");
         } else {
           alert("Wrong E-mail or Password");
         }
+
+
+
     }
 
 
