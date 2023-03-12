@@ -17,12 +17,12 @@ export const StoreProvider = ({ children }) => {
           },
           '@media (minWidth:960px)': {
             maxWidth: 800,
-            flexDirection: 'column', // yeni stil
+            flexDirection: 'column',
           },
         },
         media: {
           height: 56,
-          paddingTop: '56.25%', // 16:9
+          paddingTop: '56.25%', 
         },
         favoriteButton: {
           color: '#f44336',
@@ -40,7 +40,7 @@ export const StoreProvider = ({ children }) => {
     
 
     const [products, setProducts] = useState([]);
-    const [value, setvalue] = useState("pending");
+    const [value, setvalue] = useState("available");
 
 
 

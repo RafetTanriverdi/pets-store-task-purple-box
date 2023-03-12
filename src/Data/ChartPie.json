@@ -1,0 +1,39 @@
+[
+    {
+      "id": "Dog",
+      "label": "Dog",
+      "value": "0.40",
+      "color": "hsl(240, 70%, 50%)"
+    },
+    {
+      "id": "Fish",
+      "label": "Fish",
+      "value": "0.15",
+      "color": "hsl(357, 70%, 50%)"
+    },
+    {
+      "id": "Hamster",
+      "label": "Hamster",
+      "value": "0.07",
+      "color": "hsl(338, 70%, 50%)"
+    },
+    {
+      "id": "Cat",
+      "label": "Cat",
+      "value": "0.23",
+      "color": "hsl(346, 70%, 50%)"
+    },
+    {
+      "id": "Bird",
+      "label": "Bird",
+      "value": "0.15",
+      "color": "hsl(73, 70%, 50%)"
+    }
+    ,
+    {
+      "id": "Other",
+      "label": "Other",
+      "value": "0.05",
+      "color": "hsl(73, 70%, 50%)"
+    }
+  ]
