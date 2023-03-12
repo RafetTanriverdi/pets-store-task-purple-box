@@ -1,6 +1,6 @@
 # Cute Pets Store
 
-[Projenin canlı Hali](https://cute-pets-rft.netlify.app/register)
+[Projenin canlı Hali](https://cute-pets-rft.netlify.app)
 
 Projemizi çalıştırmadan önce nodejs kontrol edelim node_modules klasörü mevcut değilse komutu çalıştıralım 
 
@@ -51,4 +51,4 @@ Logutla Çıkış yaptığınızda verileriniz kaybolmaz verileriniz ancak taray
 
 ![Untitled](/src/Img/6.gif)
 
-### `Bu Task 7 Mart 2023 de Başlayıp 12 Mart 2023 de Tamamlanmıştır`
+### `Bu Case 8 Mart 2023 de Başlayıp 12 Mart 2023 de Tamamlanmıştır`
