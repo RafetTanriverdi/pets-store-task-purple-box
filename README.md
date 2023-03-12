@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Cute Pets Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Projenin canlı Hali](https://cute-pets-rft.netlify.app/register)
 
-## Available Scripts
+Projemizi çalıştırmadan önce nodejs kontrol edelim node_modules klasörü mevcut değilse komutu çalıştıralım 
 
-In the project directory, you can run:
+### `npm install`
+
+Projeyi de Başlatalım 
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Kullanıcı bilgileri localde saklanmaktadır daha önceden üyelik bulunmadığı kontrolü yapıldığı için ilk olarak register sayfasına yönlendirilirsiniz.Üye olduktan sonra ister kullanıcı adı ister mail kullanarak giriş yaparsınız.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![Untitled](/src/Img/1.gif)
 
-### `npm test`
+### `Login`,`Register`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Bu Componentlerde local strogede verinin varlığı ve doğruluğu kontrolleri yapılarak giriş home sayfasına ulaşırsınız.
+Login ve Register componentleri ve diğer tüm sayfalar App.js altında gerekli linklendirme işlemleri react-router-dom yapısı ile sağlandı.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Untitled](/src/Img/2.gif)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `Services`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Projede Services klasöründe  ProjectedRoutes.jsx ile kullanıcının durumu login mi yoksa logout mu bunun kontrolü yapılmakta.
+Bu Servisin altında alt bir servis olarakta login se headerı aktif et değilde pasif konumda tut şeklinde bir servis daha bulunmakatadır.
 
-### `npm run eject`
+### `Home`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Giriş yapıldıktan sonra Home sayfasında Pets sayfası karşınıza gelir bu sayfa home sayfası olarakta atanmıştır. Pets verileri localstrogede tutulmakta bu yüzden daha önceden pets verisi girilmemiş olarak görürsünüz. "Add a pet" butonuna tıkladığınızda pop-up yapısında olan bir form ile
+karşılaşırsınız. Veri ekledikten sonra tablo gelir, bu tabloda verilerinizi güncelleye bilir veya silebilirsiniz tablonun sağ üstünde yer alan "add another pet " butonu ile yeniden veri eklersiniz bu buton ile hiç veri yokken karşılaştığınız buton "add a pet" aynı butondur sadece tabloda veri olmasına göre style özellikleri değişmektedir.Pets sayfası iki component halinde tasarlanmıştır verilerin girildiği pop-up ve verilerin listelendiği table.
+ Not: Tablodaki verileri anlık olarak güncellemek için setinterval fonksiyonu kullandım. Verilerin anlık olarak iletilmesi işlemi için Context Kullanılabilir Çok daha büyük bir Projede Redux da kullanılabilir ben projenin boyutundan dolayı context yapısını denedim fakat veriler localde tutulduğu ve statelerin aldığı değerlerin karışması neticesinde context yapısını kullanmadan verilerin anlık güncellenmesini
+setinterval ile hallettim.
+![Untitled](/src/Img/3.gif)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `Store Page`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Store sayfasında [pets store](https://petstore.swagger.io/#/) verilerini çekerek bir Listeleme yapıldı gelen apida pets verileri üç başlıkta alınabiliyordu "available" ,"pending", "sold" şeklinde alınabiliyordu,select ile çağrılan verileri değiştirmek ve çağrılan verileri favorilere eklenmesi yapsını kurgulmak istedim. Bu sebeple Context yapısını uyguladım. Veriler anlık olarak değişebilir, favorilere eklenip çıkarılabilir tarzda oldu favoriler pop-up yapısında gösterilmektedir. 
+Not:Çağırılan Apide görsel olmaması veya eklenen urlenin bozuk olması gibi sebeplerden çağrılan apida url boşaltılıp yeni bir url atanmıştır.
+![Untitled](/src/Img/4.gif)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### `Analysis Page`
 
-## Learn More
+Bu Sayfada Dinamik Grafikleri kullanarak bir dashboard Oluşturmak istedim kullandığım grafikler [Nivo Chord](https://nivo.rocks/chord/), [Nivo Pie](https://nivo.rocks/pie/), [Nive Geo](https://nivo.rocks/choropleth/), [Nivo Radial Bar](https://nivo.rocks/radial-bar/), [Nivo Area Bump](https://nivo.rocks/area-bump/) Şeklindedir.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `Logout `
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Logutla Çıkış yaptığınızda verileriniz kaybolmaz verileriniz ancak tarayıcınızın geçimişini temizlediğiniz kaybolur. 
 
-### Code Splitting
+![Untitled](/src/Img/6.gif)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### `Bu Task 7 Mart 2023 de Başlayıp 12 Mart 2023 de Tamamlanmıştır`

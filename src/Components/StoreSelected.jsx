@@ -13,7 +13,7 @@ function StoreSelected() {
   return (
     <div >
       <FormControl sx={{ m: 1, minWidth: 120 ,Height:5}}>
-        <Select onChange={handleChange} displayEmpty inputProps={{ 'aria-label': 'Without label' }} defaultValue="pending">
+        <Select onChange={handleChange} displayEmpty inputProps={{ 'aria-label': 'Without label' }} defaultValue="available">
           {data.map((item) => (
             <MenuItem  key={item.id} value={item.name}>
               {item.name.toLocaleUpperCase()}
